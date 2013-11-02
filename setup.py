@@ -13,9 +13,9 @@ def get_config_schema():
     return ConfigSchema(make_boost_base_options() + [
         BoostLibraries("python"),
 
-        StringListOption("CXXFLAGS", ["-Wno-sign-compare"], 
+        StringListOption("CXXFLAGS", ["-Wno-sign-compare"],
             help="Any extra C++ compiler options to include"),
-        StringListOption("LDFLAGS", [], 
+        StringListOption("LDFLAGS", [],
             help="Any extra linker options to include"),
         ])
 
@@ -53,7 +53,7 @@ def main():
         "src/pyicl_intervals.cpp",
         "src/pyicl_interval_sets.cpp",
         "src/pyicl_interval_maps.cpp",
-    ] 
+    ]
 
     try:
         from distutils.command.build_py import build_py_2to3 as build_py
@@ -90,11 +90,11 @@ def main():
             ],
 
             packages              = find_packages(where='Python'),
-            package_dir           = { '' : 'Python' },
-            package_data          = { 'pyicl': ['VERSION', 'README', 'LICENSE'] },
-            install_requires      = ['distribute', 'cookbook'],
-            ext_modules           = [ 
-                Extension("pyicl._pyicl", 
+            package_dir           = {'' : 'Python'},
+            package_data          = {'pyicl': ['VERSION', 'README', 'LICENSE']},
+            install_requires      = ['cookbook'],
+            ext_modules           = [
+                Extension("pyicl._pyicl",
                     ext_src,
                     include_dirs=INCLUDE_DIRS,
                     library_dirs=LIBRARY_DIRS,

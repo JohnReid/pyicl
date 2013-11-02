@@ -5,18 +5,20 @@
 # Configuration
 #
 PYPI_NAME=PyICL
-DIR=htdocs/PyICL
-HOST=xenakis
+HOST=zemlinsky
+DIR=www/PyICL
 UPLOAD_URL="http://pypi.python.org/pypi?%3Aaction=pkg_edit&name=$PYPI_NAME"
 
 
 #
 # Check everything is checked in
 #
-if [ "$(svn st)" != "" ]
+if ! git st | grep "working directory clean"
 then
-  svn st
+  git st
+  echo "*************************************************************"
   echo "You need to check in everything before updating distribution."
+  echo "*************************************************************"
   exit -1
 fi
 
