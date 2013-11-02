@@ -26,6 +26,7 @@ fi
 #
 # Update the documentation and upload to pypi and our web host
 #
+pip install sphinx sphinx-pypi-upload
 LD_LIBRARY_PATH=/home/john/local/lib PYTHONPATH=Python python setup.py build_sphinx
 LD_LIBRARY_PATH=/home/john/local/lib PYTHONPATH=Python python setup.py upload_sphinx
 scp -r docs/build/html/* $HOST:$DIR/docs/build/html/
