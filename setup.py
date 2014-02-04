@@ -89,9 +89,10 @@ def main():
                 'Topic :: Utilities',
             ],
 
-            packages              = find_packages(where='Python'),
+            packages              = ['pyicl'],
             package_dir           = {'' : 'Python'},
             package_data          = {'pyicl': ['VERSION', 'README', 'LICENSE']},
+            include_package_data  = True,
             install_requires      = ['cookbook'],
             ext_modules           = [
                 Extension("pyicl._pyicl",
